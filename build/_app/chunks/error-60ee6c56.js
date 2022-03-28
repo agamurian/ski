@@ -1,0 +1,1 @@
+const o="oops! ";var r={"401":"Unauthorized.","403":"Forbidden.","404":"Page not found.","500":"Server internal error.",oops:o,default:"Some error occurred.","[backToHome]":"Back to home"};export{r as default,o as oops};

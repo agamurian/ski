@@ -1,0 +1,10 @@
+{
+  "menu": "MENU",
+  "colorScheme": {
+    "dark": "Dark",
+    "light": "Light",
+    "darkTo": "Disable Dark Mode",
+    "lightTo": "Enable Dark Mode"
+  },
+  "copyright": "Copyright © {{crYear}} ChunKit.hk"
+}

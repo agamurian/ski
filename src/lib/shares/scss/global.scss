@@ -1,0 +1,29 @@
+@import "variable";
+
+:global {
+  html[data-color-scheme] {
+    body {
+      color: var(--main-font-color);
+    }
+
+    a {
+      color: var(--main-font-color);
+      text-decoration: none;
+      &:hover {
+        color: var(--main-font-color);
+        text-decoration: underline;
+      }
+    }
+
+    .curPoi {
+      cursor: pointer;
+    }
+
+    .colinher {
+      color: inherit;
+    }
+    .notSel {
+      user-select: none;
+    }
+  }
+}

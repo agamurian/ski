@@ -1,0 +1,76 @@
+  RewriteEngine On
+  RewriteBase /
+  # DirectorySlash Off
+
+  # Prevent dot directories (hidden directories like .git) to be exposed to the public
+  # Except for the .well-known directory used by LetsEncrypt a.o
+  # RewriteRule "/\.|^\.(?!well-known/)" - [F]
+
+  # Rewrite www.example.com -> example.com -- used with SEO Strict URLs plugin
+  # RewriteCond %{HTTP_HOST} .
+  # RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+
+  # Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent
+  # https://www.example.com when your cert only allows https://secure.example.com
+  # RewriteCond %{SERVER_PORT} !^443
+  # RewriteRule (.*) https://%{SERVER_NAME}/$1 [R=301,L]
+
+  # Remove trailing slashes
+  # NOTE: Use with `DirectorySlash Off`.
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteRule ^(.*[^/])$ /$1/ [L]
+  # RewriteCond %{REQUEST_FILENAME} !-d
+  # RewriteRule ^(.*)/$ /$1 [L,R]
+
+  # Serve files if exist
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^(.*)$ - [L]
+
+  ##############################################
+  # Skip redirection if locale already present #
+  ##############################################
+  RewriteRule ^en(\/.*)?$ - [L]
+  RewriteRule ^zh(\/.*)?$ - [L]
+  RewriteRule ^cn(\/.*)?$ - [L]
+
+  ##############################
+  # Set custom locales if fits #
+  ##############################
+  RewriteCond %{HTTP:Accept-Language} ^zh [NC]
+  RewriteRule ^ /zh%{REQUEST_URI} [R=301,L]
+
+  RewriteCond %{HTTP:Accept-Language} ^cn [NC]
+  RewriteRule ^ /cn%{REQUEST_URI} [R=301,L]
+
+  ###############################################
+  # Set default locale if no custom locale fits #
+  ###############################################
+  RewriteRule ^ /en%{REQUEST_URI} [R=301,L]
+
+  ######################################
+  # Set error pages for custom locales #
+  ######################################
+  <If "%{REQUEST_URI} =~ /^\x2Fzh(\x2F.*)?$/">
+    ErrorDocument 401 /zh/401/index.html
+    ErrorDocument 403 /zh/403/index.html
+    ErrorDocument 404 /zh/404/index.html
+    ErrorDocument 500 /zh/500/index.html
+  </If>
+  <ElseIf "%{REQUEST_URI} =~ /^\x2Fcn(\x2F.*)?$/">
+    ErrorDocument 401 /cn/401/index.html
+    ErrorDocument 403 /cn/403/index.html
+    ErrorDocument 404 /cn/404/index.html
+    ErrorDocument 500 /cn/500/index.html
+  </ElseIf>
+
+  ##################################
+  # Set default locale error pages #
+  ##################################
+  <Else>
+    ErrorDocument 401 /en/401/index.html
+    ErrorDocument 403 /en/403/index.html
+    ErrorDocument 404 /en/404/index.html
+    ErrorDocument 500 /en/500/index.html
+  </Else>

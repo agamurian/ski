@@ -1,0 +1,26 @@
+:root {
+  &[data-color-scheme="light"] {
+    --main-bg-color: #E5E5E5;
+    --container-bg-color: #FFFFFF;
+    --card-bg-color: #FFFFFF;
+    --main-font-color: #090909;
+    --mute-font-color: #6D6D6D;
+
+    // XXX: Rewrite Bootstrap
+    --bs-body-bg: var(--main-bg-color);
+    --bs-body-color: var(--main-font-color);
+  }
+
+  &[data-color-scheme="dark"] {
+    --main-bg-color: #292929;
+    --container-bg-color: #121212;
+    --card-bg-color: #1E1E1E;
+    --main-font-color: #DADADA;
+    --mute-font-color: #9C9C9C;
+
+    // XXX: Rewrite Bootstrap
+    --bs-body-bg: var(--main-bg-color);
+    --bs-body-color: var(--main-font-color);
+  }
+
+}

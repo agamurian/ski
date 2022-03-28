@@ -1,0 +1,1 @@
+const o="\u9078\u55AE",c={dark:"\u6DF1\u6C89",light:"\u5149\u660E",darkTo:"\u505C\u7528\u6DF1\u6C89\u6A21\u5F0F",lightTo:"\u555F\u7528\u6DF1\u6C89\u6A21\u5F0F"},r="Copyright \xA9 {{crYear}} ChunKit.hk";var t={menu:o,colorScheme:c,copyright:r};export{c as colorScheme,r as copyright,t as default,o as menu};

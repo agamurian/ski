@@ -1,0 +1,10 @@
+{
+  "menu": "選單",
+  "colorScheme": {
+    "dark": "深沉",
+    "light": "光明",
+    "darkTo": "停用深沉模式",
+    "lightTo": "啟用深沉模式"
+  },
+  "copyright": "Copyright © {{crYear}} ChunKit.hk"
+}

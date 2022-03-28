@@ -1,0 +1,1 @@
+const o="MENU",r={dark:"Dark",light:"Light",darkTo:"Disable Dark Mode",lightTo:"Enable Dark Mode"},e="Copyright \xA9 {{crYear}} ChunKit.hk";var t={menu:o,colorScheme:r,copyright:e};export{r as colorScheme,e as copyright,t as default,o as menu};

@@ -1,0 +1,8 @@
+{
+	"allowJs": true,
+	"checkJs": true,
+	"noEmit": true,
+	"noImplicitAny": true,
+	"module": "es2020",
+	"extends": "./.svelte-kit/tsconfig.json"
+}
