@@ -3,7 +3,10 @@ sveltekit + mdsvex + i18n + bootstrap5
 
 ### Bootstrap your sveltekit blog or other static site using this jamstack boilerplate
 
-# INSTALL
+# INSTALL 
+
+#### ! Important! 
+#### Ski works only with node version 14, so install that version 14 from noderesourse or via nvm
 
 yarn
 
